@@ -1,0 +1,221 @@
+   400	      tokenNumber: 'OPD-101',
+   401	      patientProfile: {
+   402	        abha_id: '14-8921-4029-1102',
+   403	        abha_address: 'ramesh.kumar@abdm',
+   404	        name: 'Ramesh Kumar',
+   405	        gender: 'Male',
+   406	        age: 48,
+   407	        mobile: '+91 98765 43210',
+   408	        is_verified: true,
+   409	        chronic_conditions: ['Type 2 Diabetes Mellitus', 'Hypertension'],
+   410	        past_diagnoses: [],
+   411	        known_allergies: ['Penicillin'],
+   412	        past_medications: [],
+   413	      },
+   414	      department: 'Allopathic',
+   415	      intakeTimestamp: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
+   416	      status: 'Waiting',
+   417	      triage: {
+   418	        urgency_level: 'Urgent',
+   419	        red_flag_detected: false,
+   420	        alert_reason: null,
+   421	      },
+   422	      clinical_data: {
+   423	        chief_complaint: 'Severe productive cough, shortness of breath on exertion for 4 days, low grade fever.',
+   424	        duration: '4 days',
+   425	        associated_symptoms: ['Wheezing', 'Chest tightness', 'Nocturnal cough'],
+   426	        reported_medications: ['Metformin 500mg BD', 'Telmisartan 40mg OD'],
+   427	        allergies: ['Penicillin'],
+   428	      },
+   429	      inferredConditions: [
+   430	        {
+   431	          id: 'inf-1',
+   432	          condition: 'Acute Exacerbation of Bronchial Asthma',
+   433	          category: 'Respiratory',
+   434	          confidence: 'High',
+   435	          evidence: ['Bilateral wheeze', 'Productive cough', 'Exertional dyspnea'],
+   436	          suggestedAction: 'Nebulization with Salbutamol + Ipratropium, Chest X-Ray',
+   437	        },
+   438	        {
+   439	          id: 'inf-2',
+   440	          condition: 'Community-Acquired Lower Respiratory Tract Infection',
+   441	          category: 'Infectious',
+   442	          confidence: 'Moderate',
+   443	          evidence: ['Low grade pyrexia', 'Discolored sputum'],
+   444	          suggestedAction: 'CBC, Sputum culture, Oral macrolide/cephalosporin',
+   445	        },
+   446	      ],
+   447	      medications: [
+   448	        { drug_name: 'Metformin', dosage: '500mg', frequency: 'BD', purpose: 'Type 2 Diabetes Glycemic Control' },
+   449	        { drug_name: 'Telmisartan', dosage: '40mg', frequency: 'OD', purpose: 'Hypertension Blood Pressure Regulation' },
+   450	      ],
+   451	      uploadedDocuments: [],
+   452	      conversationHistory: [
+   453	        { sender: 'assistant', text: 'Namaste Ramesh ji. Please tell me what health issues bring you to the hospital today.', timestamp: '10:02 AM' },
+   454	        { sender: 'patient', text: 'Doctor, I have severe cough with yellowish phlegm and breathlessness since 4 days.', timestamp: '10:03 AM' },
+   455	        { sender: 'assistant', text: 'Do you have any fever or chest pain when coughing?', timestamp: '10:03 AM' },
+   456	        { sender: 'patient', text: 'Yes, mild fever especially in evening and tight chest.', timestamp: '10:04 AM' },
+   457	      ],
+   458	      physician_summary_markdown: 'Patient presents with 4-day history of productive cough, wheezing and dyspnea. Known diabetic and hypertensive.',
+   459	    };
+   460	
+   461	    const demo2: DoctorQueuePatient = {
+   462	      id: `pat-demo-102`,
+   463	      tokenNumber: 'OPD-102',
+   464	      patientProfile: {
+   465	        abha_id: '14-7291-8392-1092',
+   466	        abha_address: 'sunita.devi@abdm',
+   467	        name: 'Sunita Devi',
+   468	        gender: 'Female',
+   469	        age: 62,
+   470	        mobile: '+91 97234 56789',
+   471	        is_verified: true,
+   472	        chronic_conditions: ['Osteoarthritis'],
+   473	        past_diagnoses: [],
+   474	        known_allergies: [],
+   475	        past_medications: [],
+   476	      },
+   477	      department: 'Allopathic',
+   478	      intakeTimestamp: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
+   479	      status: 'In Consultation',
+   480	      triage: {
+   481	        urgency_level: 'Immediate',
+   482	        red_flag_detected: true,
+   483	        alert_reason: 'Acute retrosternal chest discomfort radiating to left arm with diaphoresis.',
+   484	      },
+   485	      clinical_data: {
+   486	        chief_complaint: 'Substernal pressure and heavy squeezing chest pain radiating to left shoulder and neck for 1 hour.',
+   487	        duration: '1 hour',
+   488	        associated_symptoms: ['Diaphoresis (Profuse sweating)', 'Nausea', 'Lightheadedness'],
+   489	        reported_medications: [],
+   490	        allergies: [],
+   491	      },
+   492	      inferredConditions: [
+   493	        {
+   494	          id: 'inf-red-1',
+   495	          condition: 'Acute Coronary Syndrome / Myocardial Infarction',
+   496	          category: 'Cardiovascular',
+   497	          confidence: 'High',
+   498	          isRedFlag: true,
+   499	          evidence: ['Radiating substernal pressure', 'Diaphoresis', 'Elderly presentation'],
+   500	          suggestedAction: 'STAT 12-Lead ECG, Troponin-I, Aspirin 300mg + Clopidogrel 300mg loading dose',
+   501	        },
+   502	      ],
+   503	      medications: [],
+   504	      uploadedDocuments: [],
+   505	      conversationHistory: [
+   506	        { sender: 'assistant', text: 'Welcome. What acute symptoms are you experiencing right now?', timestamp: '10:15 AM' },
+   507	        { sender: 'patient', text: 'My chest feels heavy like someone is sitting on it, and left arm is aching with cold sweats.', timestamp: '10:16 AM' },
+   508	      ],
+   509	      physician_summary_markdown: 'CRITICAL ALERT: Suspected Acute Coronary Syndrome. Immediate ECG and cardiac triage required.',
+   510	    };
+   511	
+   512	    const demo3: DoctorQueuePatient = {
+   513	      id: `pat-demo-103`,
+   514	      tokenNumber: 'OPD-103',
+   515	      patientProfile: {
+   516	        abha_id: '14-3829-1920-4820',
+   517	        abha_address: 'priya.sharma@abdm',
+   518	        name: 'Priya Sharma',
+   519	        gender: 'Female',
+   520	        age: 34,
+   521	        mobile: '+91 98112 34567',
+   522	        is_verified: true,
+   523	        chronic_conditions: ['Allergic Rhinitis'],
+   524	        past_diagnoses: [],
+   525	        known_allergies: ['Sulfa drugs'],
+   526	        past_medications: [],
+   527	      },
+   528	      department: 'AYUSH',
+   529	      intakeTimestamp: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
+   530	      status: 'Waiting',
+   531	      triage: {
+   532	        urgency_level: 'Routine',
+   533	        red_flag_detected: false,
+   534	        alert_reason: null,
+   535	      },
+   536	      clinical_data: {
+   537	        chief_complaint: 'Chronic hyperacidity, epigastric burning after spicy food, occasional nausea.',
+   538	        duration: '3 weeks',
+   539	        associated_symptoms: ['Heartburn', 'Sour burps', 'Bloating'],
+   540	        reported_medications: ['Antacid gel'],
+   541	        allergies: ['Sulfa drugs'],
+   542	      },
+   543	      inferredConditions: [
+   544	        {
+   545	          id: 'inf-ayush-1',
+   546	          condition: 'Amlapitta (Hyperacidity / Acid Peptic Disorder)',
+   547	          category: 'Gastrointestinal',
+   548	          confidence: 'High',
+   549	          evidence: ['Retrosternal burning', 'Sour eructations', 'Aggravated by pungent diet'],
+   550	          suggestedAction: 'Suta Shekhar Rasa, Avipattikar Churna, Kamadudha Rasa',
+   551	        },
+   552	      ],
+   553	      medications: [],
+   554	      uploadedDocuments: [],
+   555	      conversationHistory: [],
+   556	      physician_summary_markdown: 'AYUSH OPD consultation for persistent Amlapitta with dietary aggravation.',
+   557	    };
+   558	
+   559	    const merged = [demo1, demo2, demo3, ...queue];
+   560	    updateQueueState(merged);
+   561	    setSelectedPatientId(demo1.id);
+   562	    populatePrescriptionForm(demo1);
+   563	  };
+   564	
+   565	  // Add Direct Walk-in Patient to Queue
+   566	  const handleAddWalkinSubmit = (e: React.FormEvent) => {
+   567	    e.preventDefault();
+   568	    if (!walkinName.trim()) return;
+   569	
+   570	    const tokenNum = `OPD-${Math.floor(104 + queue.length)}`;
+   571	    const newPatient: DoctorQueuePatient = {
+   572	      id: `pat-${Date.now()}`,
+   573	      tokenNumber: tokenNum,
+   574	      patientProfile: {
+   575	        abha_id: `WALKIN-${Math.floor(100000 + Math.random() * 900000)}`,
+   576	        abha_address: `${walkinName.toLowerCase().replace(/\s+/g, '.')}@abdm.local`,
+   577	        name: walkinName.trim(),
+   578	        gender: walkinGender,
+   579	        age: parseInt(walkinAge, 10) || 35,
+   580	        is_verified: false,
+   581	        chronic_conditions: [],
+   582	        past_diagnoses: [],
+   583	        known_allergies: [],
+   584	        past_medications: [],
+   585	      },
+   586	      department: activeDepartment,
+   587	      intakeTimestamp: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
+   588	      status: 'In Consultation',
+   589	      triage: {
+   590	        urgency_level: walkinIsRedFlag ? 'Immediate' : 'Routine',
+   591	        red_flag_detected: walkinIsRedFlag,
+   592	        alert_reason: walkinIsRedFlag ? 'Emergency walk-in triaged directly by physician.' : null,
+   593	      },
+   594	      clinical_data: {
+   595	        chief_complaint: walkinComplaint.trim() || 'Direct OPD Doctor Evaluation',
+   596	        duration: 'Acute',
+   597	        associated_symptoms: [],
+   598	        reported_medications: [],
+   599	        allergies: [],
+   600	      },
+   601	      inferredConditions: [
+   602	        {
+   603	          id: `inf-${Date.now()}`,
+   604	          condition: walkinComplaint.trim() || 'Acute Consultation',
+   605	          category: 'Clinical',
+   606	          confidence: 'High',
+   607	          evidence: ['Physician bedside intake'],
+   608	        },
+   609	      ],
+   610	      medications: [],
+   611	      uploadedDocuments: [],
+   612	      conversationHistory: [],
+   613	      physician_summary_markdown: `Direct walk-in consultation: ${walkinComplaint}`,
+   614	    };
+   615	
+   616	    const updated = [newPatient, ...queue];
+   617	    updateQueueState(updated);
+   618	    setSelectedPatientId(newPatient.id);
+   619	    populatePrescriptionForm(newPatient);
+   620	    setShowAddWalkinModal(false);
